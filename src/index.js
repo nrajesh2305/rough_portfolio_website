@@ -1,4 +1,8 @@
-function showTab(tabId) {
+function showTab(tabId, event) {
+    if (event)
+        {
+            event.preventDefault();
+        }
     const tabs = document.querySelectorAll('.tab-content');
     tabs.forEach(tab => {
         tab.classList.remove('active'); // Hide all tabs

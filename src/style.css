@@ -24,6 +24,32 @@ body {
     to { opacity: 1; }
 }
 
+/* Tagline Styling */
+.tagline {
+    font-size: 1.5rem; /* Adjust based on your preferred size */
+    color: #f4f4f9; /* Light color to contrast the background */
+    text-align: center; /* Center-align the text */
+    margin-top: 1em; /* Space above */
+    margin-bottom: 1em; /* Space below */
+    line-height: 1.6; /* Improves readability */
+    font-weight: 300; /* Lighter font weight for elegance */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+    animation: fadeInTagline 1s ease-in-out; /* Optional animation */
+}
+
+/* Optional Fade-In Animation for Tagline */
+@keyframes fadeInTagline {
+    from {
+        opacity: 0;
+        transform: translateY(10px); /* Slide in from below */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Settle in place */
+    }
+}
+
+
 header {
     background-color: #333;
     color: #fff;
@@ -108,10 +134,13 @@ header:hover {
 }
 
 .avatar {
-    width: 100%;
-    height: 100%;
+    width: 15vw;
+    height: 15vw;
     object-fit: cover;
     transition: transform 0.3s ease;
+    border-radius: 50%;
+    display: flex;
+    align-self: center;
 }
 
 .avatar:hover {
@@ -157,16 +186,22 @@ footer {
 
 /* Tab Content Fade-In */
 .tab-content {
-    display: none;
+    visibility: hidden;
     opacity: 0;
-    padding: 5vh 3vw;
+    top: 0;
+    left: 0;
+    padding: 5vh 5vw;
+    position: absolute;
     width: 100%;
     height: 100%;
-    animation: fadeInTab 0.8s ease;
+    transition: visibility 0s, opacity 0.5s ease-in-out;
 }
 
 .tab-content.active {
-    display: block;
+    visibility: visible;
+    opacity: 1;
+    position: relative;
+    animation: fadeInTab 0.8s ease;
 }
 
 @keyframes fadeInTab {
