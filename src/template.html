@@ -3,18 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../src/style.css">
-    <title>Restaurant Page</title>
+    <title>Your Name - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
 </head>
 <body>
-    <script src="index.js" defer></script>
-
     <header>
         <nav>
-
+            <div class="nav-container">
+                <a href="#" onclick="showTab('home')">Home</a>
+                <a href="#" onclick="showTab('resume')">Resume</a>
+                <a href="#" onclick="showTab('certifications')">Certifications</a>
+                <a href="#" onclick="showTab('coursework')">Coursework & Projects</a>
+                <a href="#" onclick="showTab('roadmap')">Roadmap</a>
+            </div>
         </nav>
     </header>
+    <main>
+        <section id="home" class="tab-content active">
+            <div class="hero">
+                <div class="hero-content">
+                    <img src="/images/myFace.png" alt="Your Headshot" class="avatar">
+                    <h1>Your Name</h1>
+                    <p class="tagline">Aspiring [Your Profession] with a passion for [Interest]</p>
+                    <button onclick="location.href='#about'" class="cta-button">Learn More About Me</button>
+                </div>
+            </div>
+        </section>
 
-    <div id="info-section"></div>
+        <section id="resume" class="tab-content">
+            <div class="content-section">
+                <h2>Resume</h2>
+                <p>Download a PDF of my resume <a href="pdf/Your_Resume.pdf" download>here</a>.</p>
+            </div>
+        </section>
+
+        <section id="certifications" class="tab-content">
+            <div class="content-section">
+                <h2>Certifications</h2>
+                <ul>
+                    <li>Certification 1</li>
+                    <li>Certification 2</li>
+                    <li>Certification 3</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="coursework" class="tab-content">
+            <div class="content-section">
+                <h2>Coursework & Projects</h2>
+                <p>Here are some of my relevant coursework and projects:</p>
+                <ul>
+                    <li>Project 1 - Brief description</li>
+                    <li>Project 2 - Brief description</li>
+                    <li>Coursework 1 - Brief description</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="roadmap" class="tab-content">
+            <div class="content-section">
+                <h2>Roadmap</h2>
+                <p>This roadmap will showcase my journey and goals in an animated way.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Designed and developed by Nithin Rajesh CWID - 884970369</p>
+    </footer>
 </body>
 </html>
+
+

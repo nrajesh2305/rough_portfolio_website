@@ -1,266 +1,197 @@
-:root 
-{
-    --system-ui: system-ui, "Roboto", sans-serif, Helvetica, Arial, sans-serif, "Segoe UI", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-
-body
-{
+/* Basic Reset */
+* {
     margin: 0;
     padding: 0;
-    font-family: var(--system-ui);
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
-.global-container
-{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr 2fr;
-    width: 100vw;
+/* General Layout */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f4f4f9;
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
-    grid-template-areas: "home the_menu contact_us"
-                         "info-section info-section info-section"
+    font-size: 1rem;
+    line-height: 1.5;
+    animation: fadeInBody 0.8s ease;
 }
 
-.nav-container
-{
-    grid-area: 1 / 1 / 1 / 4;
+@keyframes fadeInBody {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+header:hover {
+    background-color: #5151E5;
+}
+
+.nav-container a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5em 1em;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+.nav-container a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 0.2em;
+    width: 100%;
+    background: #72EDF2;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-container a:hover::before {
+    transform: scaleX(1);
+}
+
+/* Hero Section */
+.hero {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10vh 2vw;
+    background: linear-gradient(135deg, #72EDF2 10%, #5151E5 100%);
+    color: white;
+    flex: 1;
+    text-align: center;
+    width: 100%;
+    height: 60vh;
+    transform: scale(1);
+    animation: zoomIn 0.8s ease;
 }
 
-.home, .the_menu, .contact_us
-{
-    background-color: tan;
-    width: 33.333%;
+@keyframes zoomIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.hero-content {
+    display: grid;
+    place-items: center;
+    gap: 2em;
+    max-width: 80vw;
+}
+
+/* Circular Icon for Page Image */
+.circle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 12vw;
+    height: 12vw;
+    background-color: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+    animation: slideInUp 1s ease forwards;
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+    transform: scale(1.1);
+}
+
+.cta-button {
+    background-color: #fff;
+    color: #5151E5;
+    padding: 0.8em 1.2em;
+    border: none;
     cursor: pointer;
-    border: 2px solid black;
-    font-size: min(calc(1rem + 2vh), 8vh);
-}
-
-.home:hover, .the_menu:hover, .contact_us:hover
-{
-    background-color: rgb(165, 137, 103);
-    transition: 0.25s;
-}
-
-.home
-{
-    grid-area: home;
-}
-
-.the_menu
-{
-    grid-area: the_menu;
-}
-
-.contact_us
-{
-    grid-area: contact_us;
-}
-
-#info-section
-{
-    grid-area: info-section;
-}
-
-.home-grid
-{
-    display: grid;
-    grid-area: 2 / 1 / 3 / 4;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    width: 100%;
-    height: 100%;
-    grid-template-areas: "restaurant_logo welcome_sign"
-                         "... restaurant_name";
-}
-
-.menu-grid
-{
-    display: grid;
-    grid-area: 2 / 1 / 3 / 4;
-    grid-template-areas: "... ...";
-}
-
-.contact-grid
-{
-    display: grid;
-    grid-area: 2 / 1 / 3 / 4;
-    grid-template-areas: "send_message contact_info";
-}
-
-.menu_item
-{
-    display: grid;
-    background-color: #FFFFF0;
-    border: 2px solid black;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: "item_description item_image";
-}
-
-.restaurant_logo
-{
-    background-image: url("/imgs/logo.png");
-    background-repeat: no-repeat;
-    height: auto;
-    max-width: 100%;
-    background-attachment: fixed;
-    background-position: center;
-    position: relative;
-    transform: scaleX(100%);
-    zoom: 50%;
-
-}
-
-.welcome_sign
-{
-    background-color: #964B00;
-    font-size: 2.5rem;
-    font-weight: bolder;
-    text-align: center;
-    align-content: center;
-    font-style: italic;
-}
-
-.restaurant_name
-{
-    background-color: rgb(243, 89, 0);
-    font-size: 2.5rem;
-    text-align: center;
-    align-content: center;
-    font-weight: bold;
-    font-style: italic;
-}
-
-.item_description
-{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    width: 36ch;
-    margin-left: 1.5em;
-    color: red;
+    transition: 0.3s;
     font-size: 1rem;
-}
-
-img.item_image:nth-child(1)
-{
-    background-image: url("/imgs/mango_pie.png");
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-    zoom: 9%;
-}
-img.item_image:nth-child(2)
-{
-    background-image: url("/imgs/mango_pie.png");
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-    zoom: 9%;
-}
-img.item_image:nth-child(3)
-{
-    background-image: url("/imgs/mango_pie.png");
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-    zoom: 9%;
-}
-img.item_image:nth-child(4)
-{
-    background-image: url("/imgs/mango_pie.png");
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-    zoom: 9%;
-}
-
-.send_message-container
-{
-    display: flex;
-    justify-self: center;
-    align-self: center;
-    justify-content: center;
-    align-items: center;
-    font-size: 1rem;
-    grid-area: -1 / 1 / 1 / 2;
     width: 80%;
-    height: 80%;
-    background-color: tan;
-    border: 10px solid rgba(165, 48, 1, 0.582);
-    border-radius: 10px;
+    max-width: 15vw;
+    transform: translateY(10px);
+    opacity: 0;
+    animation: slideInUp 1s ease forwards 0.8s;
 }
 
-.send_message-title
-{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 20%;
-    font-weight: bolder;
-    font-style: italic;
-    position: relative;
-    bottom: 2em;
-    font-size: 1.5rem;
-    color:rgba(59, 17, 0, 0.582);
+.cta-button:hover {
+    background-color: #5151E5;
+    color: #fff;
+    transform: scale(1.05);
 }
 
-.send_message-form
-{
-    position: relative;
-    top: 1em;
-    justify-self: center;
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #333;
+    color: #fff;
+    font-size: 0.9rem;
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
 }
 
-button.submit
-{
-    display: flex;
-    width: 75%;
-    height: 3vw;
-    justify-self: center;
-    justify-content: center;
-    align-content: center;
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-.contact_info-container
-{
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr;
-    grid-area: -1 / 2 / 1 / 3;
-    justify-self: center;
-    align-self: center;
-    position: relative;
-    bottom: 4.25em;
-    width: 75%;
-    height: 50%;
-    background-color: tan;
-    border: 10px solid rgba(165, 48, 1, 0.582);
-    border-radius: 10px;
-}
-
-.toll-free-text
-{
-    display: flex;
-    grid-area: 1 / 1 / 2 / 2;
+/* Tab Content Fade-In */
+.tab-content {
+    display: none;
+    opacity: 0;
+    padding: 5vh 3vw;
     width: 100%;
     height: 100%;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    font-weight: bolder;
-    font-style: italic;
-    color:rgba(59, 17, 0, 0.582);
+    animation: fadeInTab 0.8s ease;
 }
 
-.toll-free-number
-{
-    display: flex;
-    grid-area: 2 / 1 / 3 / 2;
-    justify-content: center;
-    font-size: 1.5rem;
-    color:rgba(59, 17, 0, 0.582);
-    font-weight: bold;
+.tab-content.active {
+    display: block;
 }
+
+@keyframes fadeInTab {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scroll Reveal for Sections */
+.content-section {
+    max-width: 80vw;
+    margin: 0 auto;
+    padding: 2em;
+    background-color: #fff;
+    border-radius: 1em;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: revealSection 0.8s ease forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes revealSection {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
