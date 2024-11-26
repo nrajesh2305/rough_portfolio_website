@@ -24,6 +24,13 @@ body {
     to { opacity: 1; }
 }
 
+.space-grotesk-font {
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
 /* Tagline Styling */
 .tagline {
     font-size: 1.5rem; /* Adjust based on your preferred size */
@@ -33,6 +40,7 @@ body {
     margin-bottom: 1em; /* Space below */
     line-height: 1.6; /* Improves readability */
     font-weight: 300; /* Lighter font weight for elegance */
+    font-family: var(nav_font);
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
     animation: fadeInTagline 1s ease-in-out; /* Optional animation */
 }
@@ -52,23 +60,35 @@ body {
 
 header {
     background-color: #333;
-    color: #fff;
-    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: space-between; /* Space between nav links and icons */
+    align-items: center; /* Vertically align all items */
+    padding: 0.5em 1em;
     position: sticky;
     top: 0;
-    z-index: 10;
-    transition: background-color 0.3s ease;
+    z-index: 1000;
+    overflow: hidden; /* Ensure nothing overflows the navbar */
 }
 
 header:hover {
     background-color: #5151E5;
 }
 
+.nav-container {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping to a new line */
+    gap: 1em; /* Add space between links */
+}
+
 .nav-container a {
     color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-weight: 50;
     text-decoration: none;
     font-size: 1rem;
-    padding: 0.5em 1em;
+    padding: 0.75em 2.5em;
     display: inline-block;
     position: relative;
     overflow: hidden;
@@ -91,6 +111,52 @@ header:hover {
     transform: scaleX(1);
 }
 
+.nav-buttons {
+    display: flex;
+    gap: 0.5em; /* Space between the two icons */
+    align-items: center; /* Vertically align icons in the nav bar */
+    flex-wrap: nowrap;
+    
+}
+
+.nav-buttons button {
+    width: 2em; /* Circular size */
+    height: 2em;
+    
+    background-color: transparent;
+    border: none;
+    border-radius: 50%; /* Circular shape */
+    background-size: cover; /* Fit the image */
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* Button Hover Effect */
+.nav-buttons button:hover {
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+#icon1 {
+    background-image: url('/icons/linkedin-custom.png'); /* Replace with LinkedIn icon */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain; /* Ensure the image fits well */
+}
+
+#icon2 {
+    background-image: url("/icons/github-custom.png"); /* Replace with GitHub icon */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+@media (max-width: 768px) {
+    .nav-buttons button {
+        width: 2em; /* Smaller size for mobile */
+        height: 2em;
+    }
+}
+
 /* Hero Section */
 .hero {
     display: flex;
@@ -102,7 +168,6 @@ header:hover {
     flex: 1;
     text-align: center;
     width: 100%;
-    height: 60vh;
     transform: scale(1);
     animation: zoomIn 0.8s ease;
 }
@@ -227,6 +292,23 @@ footer {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* PDF Container Styling */
+.pdf-container {
+    margin-top: 1em;
+    width: 100%;
+    height: auto; /* Automatically adjusts based on content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pdf-container iframe {
+    width: 100%; /* Full width of the container */
+    height: 100%; /* Full height to ensure visibility */
+    border: none;
+}
+
 
 
 

@@ -3,19 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
+    <title>Nithin Rajesh - Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
     <script src="index.js" defer></script>
 </head>
 <body>
     <header>
         <nav>
             <div class="nav-container">
-                <a href="#" onclick="showTab('home', event)">Home</a>
-                <a href="#" onclick="showTab('resume', event)">Resume</a>
-                <a href="#" onclick="showTab('certifications', event)">Certifications</a>
-                <a href="#" onclick="showTab('coursework', event)">Coursework & Projects</a>
-                <a href="#" onclick="showTab('roadmap', event)">Roadmap</a>
+                <a href="#" onclick="showTab('home', event)">HOME</a>
+                <a href="#" onclick="showTab('resume', event)">RESUME</a>
+                <a href="#" onclick="showTab('certifications', event)">CERTIFICATIONS</a>
+                <a href="#" onclick="showTab('coursework', event)">COURSEWORK & PROJECTS</a>
+                <a href="#" onclick="showTab('stats', event)">LEETCODE STATS</a>
+                <a href="#" onclick="showTab('roadmap', event)">ROADMAP</a>
+                <div class="nav-buttons">
+                    <button id="icon1"></button>
+                    <button id="icon2"></button>
+                </div>
             </div>
         </nav>
     </header>
@@ -34,9 +42,13 @@
         <section id="resume" class="tab-content">
             <div class="content-section">
                 <h2>Resume</h2>
-                <p>Download a PDF of my resume <a href="pdf/Your_Resume.pdf" download>here</a>.</p>
+                <p>Download a PDF of my resume <a href="Nithin - Resume 9-24-2024.pdf" download>here</a>.</p>
+                <div class="pdf-container">
+                    <iframe id="pdf-frame" src="Nithin - Resume 9-24-2024.pdf" frameborder="0"></iframe>
+                </div>
             </div>
         </section>
+        
 
         <section id="certifications" class="tab-content">
             <div class="content-section">
