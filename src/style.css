@@ -137,14 +137,14 @@ header:hover {
 }
 
 #icon1 {
-    background-image: url('/icons/linkedin-custom.png'); /* Replace with LinkedIn icon */
+    background-image: url('/svgs/linkedin.svg'); /* Replace with LinkedIn icon */
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain; /* Ensure the image fits well */
 }
 
 #icon2 {
-    background-image: url("/icons/github-custom.png"); /* Replace with GitHub icon */
+    background-image: url("/svgs/github.svg"); /* Replace with GitHub icon */
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -286,7 +286,55 @@ footer {
     transform: translateY(20px);
     animation: revealSection 0.8s ease forwards;
     animation-delay: 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
+.content-section img
+{
+    margin: 0.625em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#skills .content-section {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#skills h2 {
+    grid-column: span 5;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#skills .content-section {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 6 columns for icons */
+    gap: 40px; /* Add more spacing between icons */
+    justify-content: center; /* Center the grid */
+    align-items: center; /* Center items vertically */
+    padding: 40px; /* Add padding to the container */
+    background-color: white; /* Optional: Ensure the container is distinct */
+    border-radius: 10px; /* Optional: Add rounded corners */
+}
+
+#skills .content-section img {
+    width: 200px; /* Icon width */
+    height: 200px; /* Icon height */
+    object-fit: contain; /* Ensure icons maintain their aspect ratio */
+}
+
 
 @keyframes revealSection {
     from { opacity: 0; transform: translateY(20px); }
