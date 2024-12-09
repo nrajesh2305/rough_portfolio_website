@@ -331,7 +331,7 @@ footer {
 
 #skills .content-section img {
     width: 200px; /* Icon width */
-    height: 200px; /* Icon height */
+    /* height: 200px; Icon height */
     object-fit: contain; /* Ensure icons maintain their aspect ratio */
 }
 
